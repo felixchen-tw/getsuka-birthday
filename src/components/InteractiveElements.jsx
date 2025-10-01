@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, Share2, Smile, ChevronDown, ChevronUp } from 'lucide-react';
+import { collection, addDoc, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 import './InteractiveElements.css';
 
 const InteractiveElements = () => {
@@ -10,32 +12,62 @@ const InteractiveElements = () => {
   const [messages, setMessages] = useState([]);
   const [showMessageBoard, setShowMessageBoard] = useState(true);
 
-  // 載入儲存的數據
+  // 載入 Firebase 留言數據並實時監聽
   useEffect(() => {
-    const savedData = localStorage.getItem('birthdayMessages');
-    if (savedData) {
-      const data = JSON.parse(savedData);
-      setMessages(data.messages || []);
-    }
+    const messagesRef = collection(db, 'getsuka-wishes');
+    const q = query(messagesRef, orderBy('timestamp', 'desc'));
+    
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const messageList = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+        timestamp: doc.data().timestamp?.toDate().toLocaleString('zh-TW') || '剛剛'
+      }));
+      setMessages(messageList);
+    }, (error) => {
+      console.error('載入留言失敗:', error);
+      // 如果 Firebase 失敗，回退到 localStorage
+      const savedData = localStorage.getItem('birthdayMessages');
+      if (savedData) {
+        const data = JSON.parse(savedData);
+        setMessages(data.messages || []);
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  // 儲存留言數據
-  const saveMessages = (newMessages) => {
-    localStorage.setItem('birthdayMessages', JSON.stringify({ messages: newMessages }));
+  // 保存留言到 Firebase
+  const saveMessage = async (messageData) => {
+    try {
+      await addDoc(collection(db, 'getsuka-wishes'), {
+        ...messageData,
+        timestamp: serverTimestamp()
+      });
+    } catch (error) {
+      console.error('保存留言失敗:', error);
+      // 如果 Firebase 失敗，回退到 localStorage
+      const savedData = localStorage.getItem('birthdayMessages');
+      const existingMessages = savedData ? JSON.parse(savedData).messages || [] : [];
+      const newMessages = [{
+        ...messageData,
+        id: Date.now(),
+        timestamp: new Date().toLocaleString('zh-TW')
+      }, ...existingMessages];
+      localStorage.setItem('birthdayMessages', JSON.stringify({ messages: newMessages }));
+      setMessages(newMessages);
+    }
   };
 
-  const handleAddMessage = () => {
+  const handleAddMessage = async () => {
     if (message.trim()) {
-      const newMessage = {
-        id: Date.now(),
+      const messageData = {
         text: message.trim(),
         author: isAnonymous ? '匿名' : authorName.trim() || '匿名',
-        isAnonymous: isAnonymous,
-        timestamp: new Date().toLocaleString('zh-TW')
+        isAnonymous: isAnonymous
       };
-      const newMessages = [...messages, newMessage];
-      setMessages(newMessages);
-      saveMessages(newMessages);
+      
+      await saveMessage(messageData);
       setMessage('');
       setAuthorName('');
       setShowMessage(false);

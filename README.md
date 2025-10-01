@@ -17,10 +17,10 @@
 - 時間軸項目的動態顯示
 
 ### 🎈 互動元素
-- 點讚、愛心、收藏功能
-- 祝福留言系統
+- 祝福留言系統（Firebase 實時同步）
 - 分享功能
-- 本地數據存儲
+- 跨設備留言共享
+- 實時留言更新
 - 動畫效果
 
 ## 🛠️ 技術架構
@@ -55,13 +55,23 @@ src/
 
 ## 🎯 Firebase 數據結構
 
-### Timeline 集合
+### Timeline 集合 (getsuka-timeline)
 ```json
 {
   "title": "生日聚會",
   "date": "2024-03-21T12:00:00Z",
   "mediaType": "video",
-  "link": "https://www.youtube.com/watch?v=example",
+  "link": "https://www.youtube.com/watch?v=example"
+}
+```
+
+### Wishes 集合 (getsuka-wishes)
+```json
+{
+  "text": "祝你生日快樂！🎂🎉",
+  "author": "小明",
+  "isAnonymous": false,
+  "timestamp": "Timestamp (serverTimestamp)"
 }
 ```
 

@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 時間軸集合 - 只允許讀取
+    match /getsuka-timeline/{document} {
+      allow read: if true;
+      allow write: if false; // 禁止前端寫入
+    }
+    
+    // 祝福留言集合 - 允許讀取和新增，但不允許修改或刪除
+    match /getsuka-wishes/{document} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if false;
+    }
+  }
+}

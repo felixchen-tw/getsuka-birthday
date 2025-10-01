@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "你的專案ID"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

@@ -16,7 +16,25 @@ VITE_FIREBASE_APP_ID=你的_APP_ID
 VITE_FIREBASE_MEASUREMENT_ID=你的_MEASUREMENT_ID
 ```
 
-### 2. 本地開發環境
+### 2. Firebase 安全規則部署
+
+在部署應用前，需要部署 Firestore 安全規則：
+
+```bash
+# 安裝 Firebase CLI (如果尚未安裝)
+npm install -g firebase-tools
+
+# 登入 Firebase
+firebase login
+
+# 初始化 Firebase 項目 (如果尚未初始化)
+firebase init firestore
+
+# 部署安全規則
+firebase deploy --only firestore:rules
+```
+
+### 3. 本地開發環境
 
 1. 複製環境變數範例檔：
    ```bash
