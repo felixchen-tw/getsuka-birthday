@@ -53,20 +53,88 @@
 .section:nth-child(3) { animation-delay: 0.6s; }
 
 .app-footer {
-  background: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(102, 126, 234, 0.2) 100%);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 4rem;
-  padding: 2rem;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
 }
 
 .footer-content p {
   margin: 0.5rem 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(102, 126, 234, 0.2) 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.footer-link:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(102, 126, 234, 0.3) 100%);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-link:hover::before {
+  left: 100%;
+}
+
+.footer-link:active {
+  transform: translateY(-1px);
 }
 
 .footer-note {
@@ -106,6 +174,21 @@
   
   .section {
     margin: 2rem 0;
+  }
+  
+  .app-footer {
+    padding: 2rem 1rem 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-links {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 

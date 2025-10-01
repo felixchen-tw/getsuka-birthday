@@ -33,7 +33,11 @@ function App() {
 
       <footer className="app-footer">
         <div className="footer-content">
-          <p>Made by Felix</p>
+          <p>Made by <a href='https://github.com/felixchen-tw' target='_blank'>Felix</a></p>
+          <div className='footer-links'>
+            <a href='https://getsuka.net' target='_blank' className='footer-link'>玥華網站</a>
+            <a href='https://sound.getsuka.net' target='_blank' className='footer-link'>音效按鈕</a>
+          </div>
         </div>
       </footer>
     </div>
