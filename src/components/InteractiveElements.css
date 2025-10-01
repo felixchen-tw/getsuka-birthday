@@ -1,0 +1,331 @@
+.interactive-elements {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 20px;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.interaction-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.interaction-header h3 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.interaction-header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+/* 飄浮愛心動畫 */
+.floating-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  animation: floatUp 2s ease-out forwards;
+  opacity: 0;
+}
+
+.floating-heart-1 { left: 20%; animation-delay: 0s; }
+.floating-heart-2 { left: 30%; animation-delay: 0.2s; }
+.floating-heart-3 { left: 50%; animation-delay: 0.4s; }
+.floating-heart-4 { left: 70%; animation-delay: 0.6s; }
+.floating-heart-5 { left: 80%; animation-delay: 0.8s; }
+.floating-heart-6 { left: 40%; animation-delay: 1s; }
+
+/* 互動按鈕 */
+.interaction-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.interaction-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.interaction-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  background: white;
+}
+
+.interaction-btn svg {
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.like-btn:hover svg { color: #007bff; }
+.heart-btn:hover svg { color: #dc3545; }
+.star-btn:hover svg { color: #ffc107; }
+.message-btn:hover svg { color: #28a745; }
+.share-btn:hover svg { color: #6f42c1; }
+
+.count {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 點讚動畫 */
+.like-btn.liked {
+  animation: likeAnimation 0.6s ease;
+}
+
+.like-btn.liked svg {
+  color: #007bff;
+  animation: bounce 0.6s ease;
+}
+
+/* 留言區域 */
+.messages-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.messages-section h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.messages-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message-item {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.message-icon {
+  color: #ffc107;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.message-time {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 1.5rem;
+}
+
+/* 留言輸入框 */
+.message-input-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.message-input-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.message-input-modal h4 {
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.message-input-modal textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.message-input-modal textarea:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+}
+
+.char-count {
+  text-align: right;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.message-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn, .send-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background: #f8f9fa;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background: #e9ecef;
+}
+
+.send-btn {
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+  color: white;
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 統計顯示 */
+.interaction-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 動畫 */
+@keyframes floatUp {
+  0% {
+    bottom: 20%;
+    opacity: 1;
+    transform: translateX(0) scale(0.8);
+  }
+  100% {
+    bottom: 80%;
+    opacity: 0;
+    transform: translateX(50px) scale(1.2);
+  }
+}
+
+@keyframes likeAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .interaction-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .message-input-overlay {
+    padding: 0.5rem;
+  }
+  
+  .message-input-modal {
+    padding: 1.5rem;
+  }
+  
+  .message-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .cancel-btn, .send-btn {
+    width: 100%;
+  }
+}
