@@ -434,3 +434,100 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* 圖片內容樣式 */
+.image-content {
+  margin: 1rem 0;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .timeline-image {
+  transform: scale(1.02);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #666;
+  border-radius: 12px;
+}
+
+.placeholder-content {
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+.placeholder-content p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* 響應式圖片設計 */
+@media (max-width: 768px) {
+  .timeline-image {
+    max-height: 250px;
+  }
+  
+  .image-overlay {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  
+  .placeholder-icon {
+    font-size: 2rem;
+  }
+}

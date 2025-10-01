@@ -1,10 +1,17 @@
 import React from 'react';
-import { Calendar, ExternalLink, Play } from 'lucide-react';
+import { Calendar, ExternalLink, Play, Image } from 'lucide-react';
 import { useTimeline } from '../hooks/useTimeline';
 import './Timeline.css';
 
 const Timeline = () => {
   const { timelineItems, loading, error } = useTimeline();
+
+  // 確保前端也按日期排序（備用排序）
+  const sortedItems = timelineItems.sort((a, b) => {
+    const dateA = a.date?.toDate ? a.date.toDate() : new Date(a.date);
+    const dateB = b.date?.toDate ? b.date.toDate() : new Date(b.date);
+    return dateA - dateB; // 升序排列（最舊的在前）
+  });
 
   const formatDate = (date) => {
     if (!date) return '';
@@ -20,14 +27,12 @@ const Timeline = () => {
     switch (mediaType) {
       case 'youtube':
         return '🎥';
-      case 'video':
-        return '🎬';
       case 'image':
         return '📸';
-      case 'audio':
-        return '🎵';
-      default:
+      case 'record':
         return '📝';
+      default:
+        return '🎉';
     }
   };
 
@@ -101,6 +106,38 @@ const Timeline = () => {
       );
     }
     
+    // 渲染圖片內容
+    if (item.mediaType === 'image' && item.link) {
+      return (
+        <div className="media-content image-content">
+          <div className="image-container">
+            <img 
+              src={item.link} 
+              alt={item.title}
+              className="timeline-image"
+              onError={(e) => {
+                console.error('Image failed to load:', item.link);
+                e.target.style.display = 'none';
+                // 顯示備用內容
+                const placeholder = document.createElement('div');
+                placeholder.className = 'image-placeholder';
+                placeholder.innerHTML = '<div class="placeholder-content"><span class="placeholder-icon">🖼️</span><p>無法載入圖片</p></div>';
+                e.target.parentNode.appendChild(placeholder);
+              }}
+              onClick={() => {
+                // 點擊圖片放大檢視
+                window.open(item.link, '_blank');
+              }}
+            />
+            <div className="image-overlay">
+              <ExternalLink size={20} />
+              <span>查看大圖</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
     return null;
   };
 
@@ -116,7 +153,7 @@ const Timeline = () => {
   return (
     <div className="timeline-container">
       <div className="timeline-header">
-        <h2>🕰️玥曆</h2>
+        <h2>🗓️ 玥曆</h2>
         
         {error && (
           <div className="timeline-notice">
@@ -130,12 +167,12 @@ const Timeline = () => {
       <div className="timeline">
         <div className="timeline-line"></div>
         
-        {timelineItems.length === 0 ? (
+        {sortedItems.length === 0 ? (
           <div className="timeline-empty">
             <p>還沒有回憶記錄，請稍後再試！</p>
           </div>
         ) : (
-          timelineItems.map((item, index) => (
+          sortedItems.map((item, index) => (
             <div 
               key={item.id} 
               className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
