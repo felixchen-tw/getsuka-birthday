@@ -23,7 +23,7 @@ export const useTimeline = () => {
     const fetchFromFirebase = () => {
       const q = query(
         collection(db, 'getsuka-timeline'), 
-        orderBy('date', 'desc')
+        orderBy('date', 'asc')
       );
 
       const unsubscribe = onSnapshot(

@@ -59,9 +59,25 @@ src/
 ```json
 {
   "title": "生日聚會",
-  "date": "2024-03-21T12:00:00Z",
-  "mediaType": "video",
+  "date": "2024-03-21T12:00:00Z", 
+  "mediaType": "youtube",
   "link": "https://www.youtube.com/watch?v=example"
+}
+
+// 圖片範例
+{
+  "title": "生日蛋糕",
+  "date": "2024-03-21T15:30:00Z",
+  "mediaType": "image", 
+  "link": "https://example.com/birthday-cake.jpg"
+}
+
+// 文字記錄範例  
+{
+  "title": "生日感想",
+  "date": "2024-03-21T20:00:00Z",
+  "mediaType": "record",
+  "link": ""
 }
 ```
 
