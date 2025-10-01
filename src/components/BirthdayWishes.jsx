@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import { Heart, Sparkles, Gift, Cake } from 'lucide-react';
+import React from 'react';
+import { Sparkles, Gift, Cake } from 'lucide-react';
 import './BirthdayWishes.css';
 
 const BirthdayWishes = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleCelebrate = () => {
-    setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 2000);
-  };
-
   return (
     <div className="birthday-wishes">
-      <div className={`wishes-header ${isAnimating ? 'celebrate' : ''}`}>
+      <div className="wishes-header">
         <div className="sparkles-container">
           <Sparkles className="sparkle sparkle-1" />
           <Sparkles className="sparkle sparkle-2" />
@@ -32,7 +25,7 @@ const BirthdayWishes = () => {
       
       <div className="wishes-content">
         <div className="wish-card">
-          <h3>🎈 祝福語</h3>
+          <h3>🎈</h3>
           <p>
             在這個特別的日子裡，<br />
             做一個特別網站<br />
@@ -41,16 +34,16 @@ const BirthdayWishes = () => {
         </div>
         
         <div className="wish-card">
-          <h3>🌟 心願</h3>
+          <h3>🌟</h3>
           <p>
-            祝福玥華早日達到銀盾<br />
+            祝福玥華早日達到銀盾，<br />
             開開心心地生活，<br />
             繼續發光發熱！
           </p>
         </div>
         
         <div className="wish-card">
-          <h3>🎂 祝願</h3>
+          <h3>🎂</h3>
           <p>
             生日蛋糕甜甜的，<br />
             生活也要甜甜的，<br />
