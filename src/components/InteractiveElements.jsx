@@ -145,7 +145,6 @@ const InteractiveElements = () => {
                         {msg.author}
                       </span>
                     </div>
-                    <div className="message-time">{msg.timestamp}</div>
                   </div>
                   <div className="message-content">
                     {msg.text}
