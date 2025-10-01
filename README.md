@@ -62,18 +62,12 @@ src/
   "date": "2024-03-21T12:00:00Z",
   "mediaType": "video",
   "link": "https://www.youtube.com/watch?v=example",
-  "location": "台北 101",
-  "description": "和朋友一起慶祝生日的美好時光",
-  "tags": ["生日", "朋友", "慶祝"],
-  "createdAt": "serverTimestamp"
 }
 ```
 
 ### 支持的媒體類型
 - `video` - 影片
-- `image` - 照片  
-- `audio` - 音頻
-- `text` - 文字
+- `image` - 照片
 
 ## 🚀 開始使用
 
@@ -176,12 +170,3 @@ service cloud.firestore {
 2. **離線存儲**: 互動數據本地存儲，刷新不丟失  
 3. **動畫效果**: 豐富的 CSS 動畫提升用戶體驗
 4. **分享功能**: 支持原生分享 API 和備用方案
-5. **無障礙設計**: 良好的鍵盤導航和屏幕閱讀器支持
-
-## 🤝 貢獻指南
-
-歡迎提交 Issue 和 Pull Request 來改進這個項目！
-
-## 📄 授權
-
-MIT License
