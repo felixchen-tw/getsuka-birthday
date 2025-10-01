@@ -118,8 +118,7 @@ const Timeline = () => {
   return (
     <div className="timeline-container">
       <div className="timeline-header">
-        <h2>🕰️ 美好回憶時光軸</h2>
-        <p>記錄每一個珍貴的時刻</p>
+        <h2>🕰️玥曆</h2>
         
         {error && (
           <div className="timeline-notice">

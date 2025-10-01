@@ -26,18 +26,8 @@ const BirthdayWishes = () => {
         </h1>
         
         <p className="birthday-subtitle">
-          願你的每一天都充滿歡樂與驚喜
+          願妳的每一天都充滿歡樂與驚喜
         </p>
-        
-        <button 
-          className="celebrate-btn"
-          onClick={handleCelebrate}
-          disabled={isAnimating}
-        >
-          <Heart className="heart-icon" />
-          {isAnimating ? '慶祝中...' : '點擊慶祝'}
-          <Heart className="heart-icon" />
-        </button>
       </div>
       
       <div className="wishes-content">
@@ -45,16 +35,16 @@ const BirthdayWishes = () => {
           <h3>🎈 祝福語</h3>
           <p>
             在這個特別的日子裡，<br />
-            願所有的美好都與你相遇，<br />
-            願所有的夢想都能成真！
+            做一個特別網站<br />
+            送給特別的妳
           </p>
         </div>
         
         <div className="wish-card">
           <h3>🌟 心願</h3>
           <p>
-            希望你永遠保持那顆<br />
-            純真善良的心，<br />
+            祝福玥華早日達到銀盾<br />
+            開開心心地生活，<br />
             繼續發光發熱！
           </p>
         </div>

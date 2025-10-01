@@ -9,8 +9,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1 className="site-title">🎉 生日祝福網站</h1>
-          <p className="site-subtitle">記錄美好時光，分享溫暖祝福</p>
+          <h1 className="site-title">玥華生日網站</h1>
+          <p className="site-subtitle">記錄玥華大小事</p>
         </div>
       </header>
 
@@ -33,10 +33,7 @@ function App() {
 
       <footer className="app-footer">
         <div className="footer-content">
-          <p>💝 用心製作的生日祝福網站</p>
-          <p className="footer-note">
-            每一個回憶都值得被珍藏 ✨
-          </p>
+          <p>Made by Felix</p>
         </div>
       </footer>
     </div>
