@@ -8,6 +8,20 @@
   color: #333;
   background-color: #fff;
 
+  /* CSS 變數 - 秋季溫暖主題 */
+  --primary-color: #d4a574;
+  --secondary-color: #b8956a;
+  --accent-color: #f4d4a7;
+  --warm-orange: #e8a87c;
+  --deep-brown: #8b6f47;
+  --cream: #faf5f0;
+  --amber: #ffb347;
+  --success-color: #9aad7e;
+  --warning-color: #e8a87c;
+  --danger-color: #d4756b;
+  --text-color: #4a3429;
+  --text-light: #8b7355;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -39,7 +53,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: var(--text-color);
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(244, 212, 167, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(232, 168, 124, 0.3) 0%, transparent 50%), 
+    radial-gradient(circle at 40% 40%, rgba(255, 179, 71, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #faf5f0 0%, #f4d4a7 25%, #e8a87c 50%, #d4a574 75%, #b8956a 100%);
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
