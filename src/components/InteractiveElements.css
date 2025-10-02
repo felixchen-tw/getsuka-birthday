@@ -1,10 +1,13 @@
 .interactive-elements {
   padding: 2rem;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, rgba(232, 168, 124, 0.8) 0%, rgba(212, 165, 116, 0.9) 100%);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   margin: 2rem 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+  border: 1px solid rgba(244, 212, 167, 0.3);
 }
 
 .interaction-header {
@@ -13,15 +16,20 @@
 }
 
 .interaction-header h3 {
-  color: white;
+  background: linear-gradient(135deg, #4a3429, #8b6f47);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(74, 52, 41, 0.2);
+  font-weight: 700;
 }
 
 .interaction-header p {
-  color: rgba(255, 255, 255, 0.9);
+  color: #8b6f47;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
 
