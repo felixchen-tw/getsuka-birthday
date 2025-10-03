@@ -139,6 +139,27 @@
 .messages-list {
   max-height: 300px;
   overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* 留言區域滾動條樣式 */
+.messages-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-list::-webkit-scrollbar-track {
+  background: rgba(255, 127, 80, 0.1);
+  border-radius: 3px;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(255, 127, 80, 0.3);
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff6347, #ff8c00);
 }
 
 .message-item {

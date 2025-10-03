@@ -246,20 +246,72 @@
   }
 }
 
-/* 滾動條美化 */
+/* 滾動條美化 - 橙色主題 */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 127, 80, 0.1);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 127, 80, 0.3);
+  box-shadow: 0 2px 6px rgba(255, 127, 80, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+  background: linear-gradient(135deg, #ff6347, #ff8c00);
+  box-shadow: 0 3px 8px rgba(255, 127, 80, 0.4);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(255, 127, 80, 0.1);
+}
+
+/* Firefox 滾動條樣式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff7f50 rgba(255, 127, 80, 0.1);
+}
+
+/* 選取文字樣式 */
+::selection {
+  background: rgba(255, 127, 80, 0.3);
+  color: #4a3429;
+}
+
+::-moz-selection {
+  background: rgba(255, 127, 80, 0.3);
+  color: #4a3429;
+}
+
+/* 輸入框焦點樣式 */
+input:focus, textarea:focus {
+  border-color: #ff7f50 !important;
+  box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.2) !important;
+}
+
+/* 進度條樣式 (如果有的話) */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(255, 127, 80, 0.2);
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  border-radius: 10px;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  border-radius: 10px;
 }
