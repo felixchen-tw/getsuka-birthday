@@ -141,7 +141,19 @@ const InteractiveElements = () => {
                   <div className="message-card-header">
                     <div className="author-info">
                       <div className="author-avatar">
-                        <Smile size={18} className="avatar-icon" />
+                        <img 
+                          src="/yuyuefan.png" 
+                          alt="Avatar" 
+                          className="avatar-image"
+                          onError={(e) => {
+                            // 如果圖片載入失敗，顯示預設圖標
+                            e.target.style.display = 'none';
+                            const fallbackIcon = document.createElement('div');
+                            fallbackIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9,9h.01"></path><path d="m15,9h.01"></path><circle cx="12" cy="15" r="3"></circle></svg>';
+                            fallbackIcon.className = 'avatar-fallback';
+                            e.target.parentNode.appendChild(fallbackIcon);
+                          }}
+                        />
                       </div>
                       <div className="author-details">
                         <span className={`author-name ${msg.isAnonymous ? 'anonymous' : 'named'}`}>

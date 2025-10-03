@@ -208,17 +208,30 @@
 .author-avatar {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #ff7f50, #ffa500);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 8px rgba(255, 127, 80, 0.3);
+  overflow: hidden;
+  border: 2px solid rgba(255, 127, 80, 0.3);
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
 }
 
-.avatar-icon {
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-fallback {
   color: white;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.avatar-fallback svg {
+  color: white;
 }
 
 .author-details {
@@ -529,6 +542,11 @@
     height: 32px;
   }
   
+  .author-avatar .avatar-image {
+    width: 100%;
+    height: 100%;
+  }
+  
   .message-card-content {
     font-size: 0.9rem;
   }
@@ -550,7 +568,12 @@
     height: 28px;
   }
   
-  .avatar-icon {
+  .author-avatar .avatar-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .avatar-fallback svg {
     width: 14px;
     height: 14px;
   }
