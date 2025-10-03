@@ -125,7 +125,7 @@ const InteractiveElements = () => {
             className="message-board-header" 
             onClick={() => setShowMessageBoard(!showMessageBoard)}
           >
-            <h4>💬 祝福留言板 ({messages.length})</h4>
+            <h4>🌟 祝福留言牆 ({messages.length})</h4>
             <button className="collapse-btn">
               {showMessageBoard ? 
                 <ChevronUp size={20} /> : 
@@ -135,18 +135,22 @@ const InteractiveElements = () => {
           </div>
           
           {showMessageBoard && (
-            <div className="messages-list">
+            <div className="message-wall">
               {messages.map(msg => (
-                <div key={msg.id} className="message-item">
-                  <div className="message-header">
-                    <div className="message-author">
-                      <Smile size={16} className="message-icon" />
-                      <span className={msg.isAnonymous ? 'anonymous' : 'named'}>
-                        {msg.author}
-                      </span>
+                <div key={msg.id} className="message-card">
+                  <div className="message-card-header">
+                    <div className="author-info">
+                      <div className="author-avatar">
+                        <Smile size={18} className="avatar-icon" />
+                      </div>
+                      <div className="author-details">
+                        <span className={`author-name ${msg.isAnonymous ? 'anonymous' : 'named'}`}>
+                          {msg.author}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <div className="message-content">
+                  <div className="message-card-content">
                     {msg.text}
                   </div>
                 </div>

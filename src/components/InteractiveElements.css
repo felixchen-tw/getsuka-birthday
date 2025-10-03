@@ -136,29 +136,144 @@
   background: rgba(245, 87, 108, 0.1);
 }
 
-.messages-list {
-  max-height: 300px;
+/* 留言牆樣式 */
+.message-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-height: 500px;
   overflow-y: auto;
-  padding-right: 8px;
+  padding: 1rem;
+  background: rgba(255, 127, 80, 0.05);
+  border-radius: 15px;
+  margin-top: 1rem;
 }
 
-/* 留言區域滾動條樣式 */
-.messages-list::-webkit-scrollbar {
-  width: 6px;
+/* 留言卡片 */
+.message-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 245, 240, 0.9));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 127, 80, 0.2);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 4px 20px rgba(255, 127, 80, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: messageSlideIn 0.5s ease-out;
 }
 
-.messages-list::-webkit-scrollbar-track {
-  background: rgba(255, 127, 80, 0.1);
-  border-radius: 3px;
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.messages-list::-webkit-scrollbar-thumb {
+.message-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7f50, #ffa500, #ff6347);
+}
+
+.message-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 8px 30px rgba(255, 127, 80, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 127, 80, 0.4);
+}
+
+/* 卡片標題 */
+.message-card-header {
+  margin-bottom: 1rem;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
   background: linear-gradient(135deg, #ff7f50, #ffa500);
-  border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(255, 127, 80, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(255, 127, 80, 0.3);
 }
 
-.messages-list::-webkit-scrollbar-thumb:hover {
+.avatar-icon {
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.author-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.author-name.named {
+  color: #4a3429;
+}
+
+.author-name.anonymous {
+  color: #8b7355;
+  font-style: italic;
+}
+
+.message-time {
+  font-size: 0.8rem;
+  color: #b8956a;
+  opacity: 0.8;
+}
+
+/* 卡片內容 */
+.message-card-content {
+  line-height: 1.6;
+  color: #4a3429;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+/* 留言牆滾動條樣式 */
+.message-wall::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-wall::-webkit-scrollbar-track {
+  background: rgba(255, 127, 80, 0.1);
+  border-radius: 4px;
+}
+
+.message-wall::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(255, 127, 80, 0.3);
+}
+
+.message-wall::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #ff6347, #ff8c00);
 }
 
@@ -391,5 +506,64 @@
   
   .cancel-btn, .send-btn {
     width: 100%;
+  }
+  
+  /* 留言牆響應式 */
+  .message-wall {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    max-height: 400px;
+  }
+  
+  .message-card {
+    padding: 1rem;
+  }
+  
+  .author-info {
+    gap: 0.5rem;
+  }
+  
+  .author-avatar {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .message-card-content {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-wall {
+    max-height: 300px;
+    padding: 0.25rem;
+  }
+  
+  .message-card {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+  
+  .author-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .avatar-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .author-name {
+    font-size: 0.85rem;
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+  }
+  
+  .message-card-content {
+    font-size: 0.85rem;
   }
 }
