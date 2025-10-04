@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://birthday.getsuka.net/sitemap.xml
+
+# Block access to source maps and config files
+Disallow: /*.map$
+Disallow: /src/
+Disallow: /.env
+Disallow: /vite.config.js
+Disallow: /package.json
+
+# Allow important assets
+Allow: /Getsuka.png
+Allow: /cake.svg

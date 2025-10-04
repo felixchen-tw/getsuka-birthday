@@ -1,0 +1,41 @@
+{
+  "name": "Getsuka 玥華生日祝福網站",
+  "short_name": "玥華生日",
+  "description": "歡迎來到 Getsuka 玥華的生日祝福網站！記錄珍貴回憶、分享生日祝福",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff7f50",
+  "orientation": "portrait-primary",
+  "categories": ["entertainment", "social", "lifestyle"],
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "/Getsuka.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/Getsuka.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/cake.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Getsuka.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "玥華生日祝福網站主畫面"
+    }
+  ]
+}

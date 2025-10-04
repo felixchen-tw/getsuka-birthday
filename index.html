@@ -1,10 +1,111 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Favicon and Icons -->
     <link rel="icon" type="image/svg+xml" href="/cake.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>玥華生日網站</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Getsuka.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Getsuka.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Getsuka.png" />
+    
+    <!-- Viewport and Mobile Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0" />
+    <meta name="theme-color" content="#ff7f50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    
+    <!-- Primary Meta Tags -->
+    <title>🎂 玥華生日祝福網站 | Getsuka Birthday - 記錄美好時光</title>
+    <meta name="title" content="🎂 玥華生日祝福網站 | Getsuka Birthday - 記錄美好時光" />
+    <meta
+      name="description"
+      content="歡迎來到 Getsuka 玥華的生日祝福網站！這裡記錄著玥華的珍貴回憶、生日祝福留言牆，以及精彩的時間軸。一起為玥華送上最溫馨的生日祝福吧！🎉✨"
+    />
+    <meta
+      name="keywords"
+      content="Getsuka, 玥華, 金魚, 直播, 生日祝福, 生日網站, 時間軸, 留言板, 回憶錄, 遊戲, 拼圖, VTuber, 台灣VTuber, 台V, 生日快樂, birthday, wishes, timeline, memories, stream, gaming"
+    />
+    <meta name="author" content="Felix Chen" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="language" content="zh-TW" />
+    <meta name="geo.region" content="TW" />
+    <meta name="geo.country" content="Taiwan" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="🎂 玥華生日祝福網站 | Getsuka Birthday" />
+    <meta
+      property="og:description"
+      content="歡迎來到 Getsuka 玥華的生日祝福網站！記錄珍貴回憶、分享生日祝福，一起慶祝這個特別的日子！🎉✨"
+    />
+    <meta property="og:url" content="https://birthday.getsuka.net" />
+    <meta property="og:site_name" content="Getsuka Birthday" />
+    <meta property="og:image" content="https://birthday.getsuka.net/Getsuka.png" />
+    <meta property="og:image:secure_url" content="https://birthday.getsuka.net/Getsuka.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Getsuka 玥華生日祝福網站" />
+    <meta property="og:locale" content="zh_TW" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🎂 玥華生日祝福網站 | Getsuka Birthday" />
+    <meta
+      name="twitter:description"
+      content="歡迎來到 Getsuka 玥華的生日祝福網站！記錄珍貴回憶、分享生日祝福 🎉✨"
+    />
+    <meta name="twitter:image" content="https://birthday.getsuka.net/Getsuka.png" />
+    <meta name="twitter:image:alt" content="Getsuka 玥華生日祝福網站" />
+    
+    <!-- Additional Social Media -->
+    <meta property="fb:app_id" content="" />
+    <meta name="pinterest-rich-pin" content="true" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://birthday.getsuka.net" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Getsuka 玥華生日祝福網站",
+      "alternateName": "Getsuka Birthday Website",
+      "url": "https://birthday.getsuka.net",
+      "description": "歡迎來到 Getsuka 玥華的生日祝福網站！這裡記錄著玥華的珍貴回憶、生日祝福留言牆，以及精彩的時間軸。",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Chen"
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://getsuka.net",
+        "name": "Getsuka 玥華",
+        "alternateName": "玥華",
+        "description": "台灣 VTuber，以遊戲直播和互動內容著稱",
+        "url": "https://getsuka.net"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://birthday.getsuka.net/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Performance Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/Getsuka.png" as="image" type="image/png" />
   </head>
   <body>
     <div id="root"></div>
