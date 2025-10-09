@@ -40,14 +40,20 @@
 }
 
 .app-header {
-  background: rgba(250, 245, 240, 0.95);
-  backdrop-filter: blur(15px);
+  background: rgba(250, 245, 240, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(139, 111, 71, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(212, 165, 116, 0.2);
-  position: relative;
+  /* 優化：防止閃動 */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .header-content {
@@ -55,6 +61,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* 優化：防止內容重排 */
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
 }
 
 .site-title {
@@ -67,6 +76,12 @@
   text-shadow: 0 2px 4px rgba(139, 111, 71, 0.2);
   font-weight: 700;
   letter-spacing: -0.02em;
+  /* 優化：防止字體閃動 */
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate3d(0, 0, 0);
 }
 
 .site-subtitle {
@@ -74,6 +89,11 @@
   color: #8b7355;
   margin: 0;
   font-weight: 500;
+  /* 優化：防止字體閃動 */
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate3d(0, 0, 0);
 }
 
 .app-main {
@@ -205,6 +225,56 @@
   50% {
     transform: translateY(-20px) scale(1.05);
     opacity: 0.3;
+  }
+}
+
+/* Header 穩定性優化 */
+.app-header,
+.app-header * {
+  will-change: auto;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.app-header {
+  contain: layout style paint;
+}
+
+.header-content * {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* 修復可能的模糊背景閃動 */
+@supports (backdrop-filter: blur(10px)) {
+  .app-header {
+    backdrop-filter: blur(10px);
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .app-header {
+    background: rgba(250, 245, 240, 1);
+  }
+}
+
+/* 滾動時的穩定性 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+/* 防止在 iOS Safari 中的彈跳效果影響 Header */
+@media (max-width: 768px) {
+  .app-header {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
