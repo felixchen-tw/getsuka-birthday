@@ -122,30 +122,30 @@ const InteractiveElements = () => {
     }
   }, [message, isAnonymous, authorName, saveMessage]);
 
-  const handleShare = useCallback(async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: '生日祝福 🎉',
-          text: '來看看這個特別的生日祝福網站！',
-          url: window.location.href
-        });
-      } catch {
-        console.log('分享取消');
-      }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('連結已複製到剪貼板！');
-    }
-  }, []);
+  // const handleShare = useCallback(async () => {
+  //   if (navigator.share) {
+  //     try {
+  //       await navigator.share({
+  //         title: '生日祝福 🎉',
+  //         text: '來看看這個特別的生日祝福網站！',
+  //         url: window.location.href
+  //       });
+  //     } catch {
+  //       console.log('分享取消');
+  //     }
+  //   } else {
+  //     navigator.clipboard.writeText(window.location.href);
+  //     alert('連結已複製到剪貼板！');
+  //   }
+  // }, []);
 
   const toggleMessageBoard = useCallback(() => {
     setShowMessageBoard(prev => !prev);
   }, []);
 
-  const openMessageInput = useCallback(() => {
-    setShowMessage(true);
-  }, []);
+  // const openMessageInput = useCallback(() => {
+  //   setShowMessage(true);
+  // }, []);
 
   const closeMessageInput = useCallback(() => {
     setShowMessage(false);
@@ -178,11 +178,11 @@ const InteractiveElements = () => {
   return (
     <div className="interactive-elements">
       <div className="interaction-header">
-        <h3>🎈 互動區域</h3>
-        <p>留下你的祝福與愛心</p>
+        <h3>🎈 留言牆</h3>
+        {/* <p>留下你的祝福與愛心</p> */}
       </div>
 
-      <div className="interaction-buttons">
+      {/* <div className="interaction-buttons">
         <button 
           className="interaction-btn message-btn"
           onClick={openMessageInput}
@@ -201,7 +201,7 @@ const InteractiveElements = () => {
           <Share2 size={24} />
           <span className="label">分享</span>
         </button>
-      </div>
+      </div> */}
 
       {messageCount > 0 && (
         <div className="messages-section">
