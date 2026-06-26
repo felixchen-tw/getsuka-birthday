@@ -27,7 +27,7 @@
 
 - **前端框架**: React 19.1.1
 - **構建工具**: Vite 7.1.7  
-- **數據庫**: Firebase Firestore
+- **資料庫**: Firebase Firestore
 - **圖標**: Lucide React
 - **樣式**: CSS3 + CSS 變量
 
@@ -49,11 +49,11 @@ src/
 ├── firebase.ts          # Firebase 配置
 ├── App.jsx             # 主應用組件
 ├── App.css             # 主應用樣式
-├── index.css           # 全局樣式
+├── index.css           # 全域樣式
 └── main.jsx            # 應用入口
 ```
 
-## 🎯 Firebase 數據結構
+## 🎯 Firebase 資料結構
 
 ### Timeline 集合 (getsuka-timeline)
 ```json
@@ -194,6 +194,6 @@ service cloud.firestore {
 ## 🎁 特色功能
 
 1. **實時同步**: 使用 Firebase 實現多設備實時同步
-2. **離線存儲**: 互動數據本地存儲，刷新不丟失  
+2. **離線儲存**: 互動數據本地存儲，刷新不丟失  
 3. **動畫效果**: 豐富的 CSS 動畫提升用戶體驗
 4. **分享功能**: 支持原生分享 API 和備用方案
